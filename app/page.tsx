@@ -1,0 +1,63 @@
+"use client";
+
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import TrustHighlights from "@/components/TrustHighlights";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Projects from "@/components/Projects";
+import Gallery from "@/components/Gallery";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import ProjectModal from "@/components/ProjectModal";
+import FloatingContact from "@/components/FloatingContact";
+import { ProjectItem } from "@/components/Projects";
+
+export default function Home() {
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+
+  return (
+    <main className="min-h-screen bg-white selection:bg-[#FACC15] selection:text-[#0B192C] relative font-sans">
+      {/* 1. Sticky Navigation Header */}
+      <Navbar />
+
+      {/* 2. Hero Section (#home) */}
+      <Hero />
+
+      {/* 3. Trust Highlights Section (Immediately after Hero) */}
+      <TrustHighlights />
+
+      {/* 4. About N.S Electrical's Section (#about) */}
+      <About />
+
+      {/* 5. Our Electrical Services Section (#services) */}
+      <Services />
+
+      {/* 6. Why Choose Us Section (#why-us) */}
+      <WhyChooseUs />
+
+      {/* 7. Our Work Section (#work) */}
+      <Projects onSelectProject={(project) => setSelectedProject(project)} />
+
+      {/* 8. Project Gallery Section (#gallery) */}
+      <Gallery />
+
+      {/* 9. Contact Us Section (#contact) */}
+      <Contact />
+
+      {/* 10. Footer */}
+      <Footer />
+
+      {/* Bottom Right Floating WhatsApp & Call Buttons */}
+      <FloatingContact />
+
+      {/* Interactive Project Lightbox Modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
+    </main>
+  );
+}
