@@ -66,7 +66,7 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="w-16 h-16 rounded-2xl bg-white/20 text-white flex items-center justify-center shadow-md">
-                  <WhatsAppIcon className="w-9 h-9 fill-current" />
+                  <WhatsAppIcon className="w-10 h-10" />
                 </div>
                 <span className="text-xs font-black bg-white text-[#25D366] px-3 py-1 rounded-full uppercase">
                   INSTANT RESPONSE
@@ -92,7 +92,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-3 bg-white text-[#25D366] hover:bg-emerald-50 py-4 px-8 rounded-full font-black text-base shadow-lg transition-all active:scale-95 cursor-pointer"
             >
-              <WhatsAppIcon className="w-5 h-5 fill-current" />
+              <WhatsAppIcon className="w-5 h-5" />
               <span>Chat on WhatsApp</span>
             </a>
           </div>

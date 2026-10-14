@@ -57,7 +57,7 @@ export default function AllIndiaService() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white py-3.5 px-6 rounded-full font-extrabold text-sm shadow-lg transition-all active:scale-95 cursor-pointer"
               >
-                <WhatsAppIcon className="w-4 h-4 fill-current" />
+                <WhatsAppIcon className="w-5 h-5" />
                 <span>WhatsApp Us</span>
               </a>
             </div>

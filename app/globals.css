@@ -55,3 +55,9 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #FACC15;
 }
+
+/* Hide floating contact buttons when mobile drawer menu is open */
+body.menu-open .floating-contact-container {
+  display: none !important;
+}
+

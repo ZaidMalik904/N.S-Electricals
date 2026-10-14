@@ -111,15 +111,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll and set menu-open class when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.classList.add("menu-open");
     } else {
       document.body.style.overflow = "unset";
+      document.body.classList.remove("menu-open");
     }
     return () => {
       document.body.style.overflow = "unset";
+      document.body.classList.remove("menu-open");
     };
   }, [mobileMenuOpen]);
 
@@ -182,7 +185,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-2 rounded-full font-bold text-xs shadow-md transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95"
               >
-                <WhatsAppIcon className="w-4 h-4 fill-current" />
+                <WhatsAppIcon className="w-4.5 h-4.5" />
                 <span>WhatsApp</span>
               </a>
 
@@ -259,29 +262,32 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Right-Side Sliding Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] lg:hidden flex justify-end">
+        <div className="fixed inset-0 z-[70] lg:hidden flex justify-end">
           {/* Backdrop Overlay */}
           <div
             className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          {/* Menu Drawer Panel */}
-          <div className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl p-6 flex flex-col justify-between z-10 animate-in slide-in-from-right duration-300">
+          {/* Right Side Drawer Panel */}
+          <div className="relative w-4/5 max-w-xs sm:max-w-sm bg-white h-full shadow-2xl p-5 flex flex-col justify-between z-10 animate-in slide-in-from-right duration-300 overflow-y-auto">
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-gray-100">
+              {/* Header with Logo and Close Button */}
+              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                 <Logo size="sm" />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2.5 text-gray-500 hover:text-[#FACC15] hover:bg-gray-100 rounded-xl transition-colors"
+                  aria-label="Close menu"
+                  className="p-2 text-gray-500 hover:text-[#0B192C] hover:bg-gray-100 rounded-xl transition-colors cursor-pointer"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="py-6 flex flex-col gap-3">
+              {/* Nav Links */}
+              <div className="py-4 flex flex-col gap-1.5">
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.id;
                   return (
@@ -289,7 +295,7 @@ export default function Navbar() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`px-4 py-3 rounded-xl text-base font-semibold transition-all ${
+                      className={`px-3.5 py-2.5 rounded-xl text-sm font-bold transition-all ${
                         isActive
                           ? "bg-yellow-50 text-[#0B192C] font-black border-l-4 border-[#FACC15]"
                           : "text-[#334155] hover:bg-gray-50 hover:text-[#0B192C]"
@@ -302,35 +308,36 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-gray-100 flex flex-col gap-3">
+            {/* Bottom Action Area (Always cleanly inside the drawer, no cut-off) */}
+            <div className="pt-4 border-t border-gray-100 flex flex-col gap-2.5 mt-auto">
               {/* Location & Contact Info Card */}
-              <div className="p-3 bg-[#0B192C] text-white rounded-2xl text-center text-xs space-y-1.5 border border-[#FACC15]/30">
-                <div className="font-extrabold text-[#FACC15] flex items-center justify-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#FACC15]" />
-                  <span>Serving Hadapsar, Pune, Maharashtra</span>
+              <div className="p-2.5 bg-[#0B192C] text-white rounded-xl text-center text-xs space-y-1 border border-[#FACC15]/30">
+                <div className="font-bold text-[#FACC15] flex items-center justify-center gap-1 text-[11px]">
+                  <MapPin className="w-3.5 h-3.5 text-[#FACC15]" />
+                  <span>Hadapsar, Pune, Maharashtra</span>
                 </div>
-                <div className="text-gray-200 font-medium">
+                <div className="text-[11px] text-gray-300">
                   Shashikant Bahule: <span className="text-[#FACC15] font-bold">86684 76768</span>
                 </div>
               </div>
 
-              {/* WhatsApp Mobile Action */}
+              {/* WhatsApp Button */}
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white py-3 rounded-full font-bold shadow-md active:scale-95 transition-all"
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white py-2.5 px-4 rounded-xl font-bold text-xs shadow-md active:scale-95 transition-all"
               >
-                <WhatsAppIcon className="w-5 h-5 fill-current" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>Chat on WhatsApp</span>
               </a>
 
-              {/* Direct Call Action */}
+              {/* Direct Call Button */}
               <a
                 href="tel:+918668476768"
-                className="w-full flex items-center justify-center gap-2 bg-[#0B192C] hover:bg-[#071527] text-[#FACC15] border border-[#FACC15] py-3 rounded-full font-bold shadow-md active:scale-95 transition-all"
+                className="w-full flex items-center justify-center gap-2 bg-[#0B192C] hover:bg-[#071527] text-[#FACC15] border border-[#FACC15] py-2.5 px-4 rounded-xl font-bold text-xs shadow-md active:scale-95 transition-all"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5" />
                 <span>Call Shashikant Bahule</span>
               </a>
             </div>

@@ -27,17 +27,17 @@ export default function Hero() {
           {/* Left Column - Text Content */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-6">
             
-            {/* Top Tagline Badge - Strictly in Single Line */}
-            <div className="inline-flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm font-bold tracking-wide bg-[#FACC15]/15 text-[#FACC15] px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full max-w-full w-fit border border-[#FACC15]/30 shadow-sm backdrop-blur-md whitespace-nowrap overflow-x-auto no-scrollbar">
-              <span className="inline-flex items-center gap-1.5 sm:gap-2 font-extrabold text-[#FACC15] shrink-0">
+            {/* Top Tagline Badge - Responsive without Scroll */}
+            <div className="inline-flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2.5 text-xs sm:text-sm font-bold tracking-wide bg-[#FACC15]/15 text-[#FACC15] px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl sm:rounded-full max-w-full w-fit border border-[#FACC15]/30 shadow-sm backdrop-blur-md">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 font-extrabold text-[#FACC15]">
                 <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current animate-pulse shrink-0" />
-                <span>Electrical Solutions for a Better Tomorrow</span>
-              </span>
-              <span className="text-white/40 shrink-0">|</span>
-              <span className="inline-flex items-center gap-1 text-white font-semibold text-xs shrink-0">
-                <MapPin className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+                <span className="text-[11px] sm:text-sm">Electrical Solutions for a Better Tomorrow</span>
+              </div>
+              <span className="text-white/40 hidden sm:inline">|</span>
+              <div className="inline-flex items-center gap-1 text-white/90 font-semibold text-[10px] sm:text-xs">
+                <MapPin className="w-3 h-3 text-[#FACC15] shrink-0" />
                 <span>Hadapsar, Pune, Maharashtra</span>
-              </span>
+              </div>
             </div>
 
             {/* Main Brand Title & SEO H1 */}
@@ -49,7 +49,7 @@ export default function Hero() {
               </div>
 
               {/* Tagline Bar */}
-              <div className="flex items-center gap-2 pt-1 text-xs sm:text-sm md:text-base font-extrabold text-yellow-400 uppercase tracking-widest">
+              <div className="flex items-center gap-2 pt-1 text-xs sm:text-sm md:base font-extrabold text-yellow-400 uppercase tracking-widest">
                 <span className="w-6 h-[2px] bg-[#FACC15]" />
                 <span>SAFE POWER &nbsp;|&nbsp; BRIGHTER TOMORROW</span>
                 <span className="w-6 h-[2px] bg-[#FACC15]" />
@@ -60,21 +60,21 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Core Values Badge Strip */}
-            <div className="bg-[#1E293B]/80 backdrop-blur-md border border-[#FACC15]/30 p-3 sm:p-4 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm font-bold text-white shadow-lg">
-              <div className="flex items-center gap-2 text-yellow-400">
-                <CheckCircle2 className="w-4 h-4 text-[#FACC15] shrink-0" />
-                <span>Quality Service</span>
+            {/* Core Values Badge Strip - Single Line on All Screens */}
+            <div className="bg-[#1E293B]/80 backdrop-blur-md border border-[#FACC15]/30 px-2.5 py-2.5 sm:px-4 sm:py-3.5 rounded-2xl flex items-center justify-between gap-1 sm:gap-3 text-[10px] xs:text-[11px] sm:text-sm font-bold text-white shadow-lg overflow-hidden">
+              <div className="flex items-center gap-1 sm:gap-2 text-yellow-400 shrink-0">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FACC15] shrink-0" />
+                <span className="whitespace-nowrap">Quality Service</span>
               </div>
-              <span className="text-gray-600 hidden sm:inline">|</span>
-              <div className="flex items-center gap-2 text-yellow-400">
-                <CheckCircle2 className="w-4 h-4 text-[#FACC15] shrink-0" />
-                <span>Affordable Rates</span>
+              <span className="text-white/20 text-xs shrink-0">|</span>
+              <div className="flex items-center gap-1 sm:gap-2 text-yellow-400 shrink-0">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FACC15] shrink-0" />
+                <span className="whitespace-nowrap">Affordable Rates</span>
               </div>
-              <span className="text-gray-600 hidden sm:inline">|</span>
-              <div className="flex items-center gap-2 text-yellow-400">
-                <CheckCircle2 className="w-4 h-4 text-[#FACC15] shrink-0" />
-                <span>On Time Delivery</span>
+              <span className="text-white/20 text-xs shrink-0">|</span>
+              <div className="flex items-center gap-1 sm:gap-2 text-yellow-400 shrink-0">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FACC15] shrink-0" />
+                <span className="whitespace-nowrap">On Time Delivery</span>
               </div>
             </div>
 
@@ -99,32 +99,32 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* CTA Buttons - Strictly in Single Line */}
-            <div className="pt-2 flex flex-row items-center flex-nowrap gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-1">
+            {/* CTA Buttons - Strictly in Single Line across all devices */}
+            <div className="pt-2 grid grid-cols-3 gap-1.5 sm:gap-3 w-full">
               <a
                 href="tel:+918668476768"
-                className="inline-flex items-center justify-center gap-2 bg-[#FACC15] hover:bg-[#EAB308] text-[#0B192C] px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full font-black text-xs sm:text-sm shadow-xl shadow-yellow-500/20 transition-all duration-200 active:scale-95 cursor-pointer shrink-0 whitespace-nowrap"
+                className="flex items-center justify-center gap-1 sm:gap-2 bg-[#FACC15] hover:bg-[#EAB308] text-[#0B192C] px-2 sm:px-4 py-2.5 sm:py-3 rounded-full font-black text-[11px] sm:text-sm shadow-xl shadow-yellow-500/20 transition-all duration-200 active:scale-95 cursor-pointer whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 fill-current shrink-0" />
-                <span>Call (86684 76768)</span>
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
+                <span>Call<span className="hidden md:inline">&nbsp;(86684 76768)</span></span>
               </a>
 
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm shadow-xl shadow-emerald-500/20 transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95 cursor-pointer shrink-0 whitespace-nowrap"
+                className="flex items-center justify-center gap-1 sm:gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-2 sm:px-4 py-2.5 sm:py-3 rounded-full font-bold text-[11px] sm:text-sm shadow-xl shadow-emerald-500/20 transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95 cursor-pointer whitespace-nowrap"
               >
-                <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
+                <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                 <span>WhatsApp</span>
               </a>
 
               <a
                 href="#services"
-                className="inline-flex items-center justify-center gap-1.5 border-2 border-white/20 text-white hover:border-[#FACC15] hover:bg-[#FACC15] hover:text-[#0B192C] px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full font-bold text-xs sm:text-sm transition-all duration-200 group shrink-0 whitespace-nowrap"
+                className="flex items-center justify-center gap-1 sm:gap-1.5 border-2 border-white/20 text-white hover:border-[#FACC15] hover:bg-[#FACC15] hover:text-[#0B192C] px-2 sm:px-4 py-2.5 sm:py-3 rounded-full font-bold text-[11px] sm:text-sm transition-all duration-200 group cursor-pointer whitespace-nowrap"
               >
-                <span>Our Services</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform shrink-0" />
+                <span><span className="hidden xs:inline">Our </span>Services</span>
+                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform shrink-0" />
               </a>
             </div>
 

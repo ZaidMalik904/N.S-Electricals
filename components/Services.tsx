@@ -1,4 +1,5 @@
 import { Home, Building2, Sliders, Lightbulb, Wrench, Zap, CheckCircle2 } from "lucide-react";
+import { WhatsAppIcon } from "./FloatingContact";
 
 export default function Services() {
   const servicesList = [
@@ -119,9 +120,10 @@ export default function Services() {
                     href="https://wa.me/918668476768?text=Hello%20Shashikant%20Bahule%2C%20I%20need%20service%20for%20"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-bold text-gray-400 hover:text-[#25D366] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-400 hover:text-[#25D366] transition-colors"
                   >
-                    WhatsApp →
+                    <WhatsAppIcon className="w-4 h-4" />
+                    <span>WhatsApp →</span>
                   </a>
                 </div>
 

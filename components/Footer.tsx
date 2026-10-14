@@ -87,7 +87,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3">
-                <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0 fill-current" />
+                <WhatsAppIcon className="w-5 h-5 shrink-0" />
                 <a
                   href={whatsappUrl}
                   target="_blank"
